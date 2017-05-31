@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <div class="page-header">
+        <h1>People List</h1>
+    </div>
+    <div class="row">
+        <a type="button" class="btn btn-default pull-right add-btn" href="/people/add">Add</a>
+        <table class="table table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="p in peopleCtrl.people">
+                    <td>{{$index + 1}}</td>
+                    <td>{{p.firstName}} {{p.lastName}}</td>
+                    <td>{{p.email}}</td>
+                    <td>{{p.mobile}}</td>
+                    <td>{{p.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="alert alert-danger" ng-if="peopleCtrl.errorMsg">
+        <span>{{peopleCtrl.errorMsg}}</span>
+    </div>
+    <div class="alert alert-info" ng-if="peopleCtrl.infoMsg">
+        <span>{{peopleCtrl.infoMsg}}</span>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Total Synergy</title>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon.ico" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+</head>
+<body ng-app="myApp">
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Total Synergy</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="fa fa-home"></i> Projects </a></li>
+                        <li><a href="/people"><i class="fa fa-shield"></i> People </a></li>
+                        <li><a href="/resources"><i class="fa fa-shield"></i> Resources </a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Suneel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <ng-view></ng-view>
+        </div>
+    </div>
+    <!--Library Scripts-->
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/mask.min.js"></script>
+   <script src="Scripts/underscore-min.js"></script>
+
+
+    <!--Application Scripts-->
+    <!--Services-->
+    <script src="app/app.js"></script>
+    <script src="app/services/http.data.js"></script>
+    <script src="app/services/projects.js"></script>
+    <script src="app/services/people.js"></script>
+    <script src="app/services/resources.js"></script>
+    <!--Components-->
+    <script src="app/projects/project.component.js"></script>
+    <script src="app/projects/list.component.js"></script>
+    <script src="app/people/people.component.js"></script>
+    <script src="app/people/person.component.js"></script>
+    <script src="app/resources/resource.component.js"></script>
+    <script src="app/resources/list.component.js"></script>
+
+</body>
+</html>

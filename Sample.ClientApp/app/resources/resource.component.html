@@ -1,0 +1,64 @@
+﻿<div class="container">
+    <div class="page-header">
+        <h1>Resources</h1>
+    </div>
+    <div class="">
+        <div class="row">
+            <div class="form-group center-div">
+                <label class="control-label col-sm-3" for="projectName">Select Project :</label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="projectName" name="projectName" ng-change="resourceCtrl.getResources()" ng-model="resourceCtrl.selectedProject" ng-options="p.name for p in resourceCtrl.projects">
+                        <option value="">Please select project</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-top-25" ng-if="resourceCtrl.selectedProject">
+            <div class="col-sm-6 separator">
+                <!--left part-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Existing Resources - <strong ng-if="resourceCtrl.selectedProject">{{resourceCtrl.selectedProject.name}}</strong></div>
+                    <div class="panel-body">
+                        <resource-list data ="resourceCtrl.projectResources"></resource-list>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <!--right part-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Add New Resource - <strong ng-if="resourceCtrl.selectedProject">{{resourceCtrl.selectedProject.name}}</strong></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" novalidate="" name="resourceCtrl.resForm" autocomplete="false">
+                            <div class="form-group required">
+                                <label class="control-label col-sm-3" for="resourceName">Resource :</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="resourceName" name="resourceName" ng-model="resourceCtrl.newResource.peopleId" ng-change="resourceCtrl.resourceChange()" ng-options="r.id as r.firstName + ' ' + r.lastName for r in resourceCtrl.availableResources" required>
+                                        <option value="">Please select resource</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-3" for="description">Description :</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="description" name="description" maxlength="50" ng-model="resourceCtrl.newResource.description" ng-pattern="/^[\w -.]*$/" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-3 col-sm-5">
+                                    <button type="submit" class="btn btn-default add-btn" ng-click="resourceCtrl.submit()" ng-disabled="resourceCtrl.resForm.$invalid">Add</button>
+                                </div>
+                            </div>
+                            <div class="alert alert-danger" ng-if="resourceCtrl.errorMsg">
+                                <span>{{resourceCtrl.errorMsg}}</span>
+                            </div>
+                            <div class="alert alert-success alert-dismissable" id="success-alert" ng-if="resourceCtrl.infoMsg">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <span>{{resourceCtrl.infoMsg}}</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
